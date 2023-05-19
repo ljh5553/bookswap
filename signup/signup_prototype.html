@@ -1,0 +1,33 @@
+<!--
+    Author : 이준형
+    File Name : singup_prototype.html
+    Format : HTML
+    Description : 회원가입 기능이 정상 작동하는지를 확인하는 테스트 페이지; 현재 사용하지 않음
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+</head>
+<body>
+    <div id="register_wrap">
+        <div class="contents">
+            <h1 id="register_title" class="title">Sign up</h1>
+            <form id="register_form" action="signup.php" method="post">
+                <div>
+                <p><input type="text" name="ID" id="ID" placeholder="ID" required></p>
+                <p><input type="password" name="password1" id="pasword1" placeholder="Password" required></p>
+                <p><input type="password" name="password2" id="password2" placeholder="Password Again" required></p>
+                <p><input type="text" name="nickname" id="Nickname" placeholder="Nickname" required></p>
+                <p><input type="text" name="email" id="email" placeholder="email" required>@gachon.ac.kr</p>
+                </div>
+                <footer><input type="submit" value="sign up" class="form_btn"></footer>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

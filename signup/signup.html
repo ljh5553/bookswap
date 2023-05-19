@@ -1,0 +1,55 @@
+<!--
+    Author : 박정웅
+    File Name : signup.html
+    Format : HTML
+    Description : 회원가입 페이지
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>join</title>
+        <link rel="stylesheet" href="../styles/reset.css">
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/join_style.css">
+        <script src="./signup.js"></script>
+    </head>
+
+    <body>
+        <h1><a href="../index.html"><img src="../image/logo.jpg" alt="로고"></a></h1> <!--로고를 누르면 메인페이지로 이동-->
+        <main>
+            <form action="./signup.php" method="post" id="joinFrm">
+                <fieldset>
+                    <legend>회원정보를 입력해주세요</legend>
+                    <ul>
+                        <li>
+                            <span class="id"><!--배경이미지(메일)--></span>
+                            <span><input type="text" name="ID" id="ID" placeholder="아이디(이메일)"></span> <!--아이디 입력 칸-->                         
+                        </li>
+                        <li class="notice newId">@gachon.ac.kr형식의 아이디로 입력해주세요</li> <!--가천 아이디로 입력--> 
+                        
+                        <li>
+                            <span class="pw"><!--배경이미지(비번)--></span>
+                            <span><input type="password" name="password1" id="password1" placeholder="비밀번호"></span>
+                        </li>
+                        <li class="notice newPw">영문/숫자/특수문자 중에서 2개 이상 조합(8~20자)</li> <!--비밀번호 안내 메시지-->
+                        <li>
+                            <span class="pw"><!--배경이미지(비번)--></span>
+                            <span><input type="password" name="password2" id="password2" placeholder="비밀번호 확인"></span>
+                        </li>
+                        <li class ="notice next_pw">확인을 위해 다시 한 번 비밀번호를 입력해주세요</li>
+                        <li>
+                            <span class="nick_name"><!--배경이미지(닉네임)--></span>
+                            <span><input type="text" name="nickname" id="nickname" placeholder="닉네임"></span>
+                        </li>
+                    </ul>
+                    <button type="submit" id="join_btn" >회원가입</button> <!--회원가입 버튼-->
+                </fieldset>
+            </form>
+            <button id="check_btn">id 중복확인</button> <!--중복 체크 아이디-->
+        </main>
+    </body>
+</html>

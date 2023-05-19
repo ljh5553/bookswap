@@ -1,0 +1,52 @@
+<!--
+    Author : 박정웅
+    File Name : login.html
+    Format : HTML
+    Description : 로그인 페이지
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login</title>
+        <link rel="stylesheet" href="../styles/reset.css">
+        <link rel="stylesheet" href="../styles/style.css">
+        <script src="./login.js"></script>
+    </head>
+    <body>
+        <h1><a href="../index.html"><img src="../image/logo.jpg" alt="로고"></a></h1> <!--로고를 누르면 메인페이지로 이동-->
+        <main>
+            <form action="./login.php" method="post" id="loginFrm">
+                <fieldset>
+                    <legend class="skip">로그인양식</legend>
+                        <ul>
+                            <li>
+                                <span class="id"><!--배경이미지(메일)--></span>
+                                <span><input type="text" name="ID" id="ID" placeholder="아이디(이메일)"></span> <!--아이디 입력 칸-->                         
+                            </li>
+                            <li class="error id_error">아이디를 입력해주세요</li> <!--아이디 오류일시 출력 메세지-->
+                            <li>
+                                <span class="pw"><!--배경이미지(비번)--></span>
+                                <span><input type="password" name="password" id="password" placeholder="비밀번호"></span>
+                            </li>
+                            <li class="error pw_error">비밀번호를 입력해주세요</li> <!--비밀번호 오류시 출력 메시지-->
+                        </ul>
+                        <div class="mid">
+                            <p>
+                                <lable>
+                                    <input type="checkbox" name="login_auto" id="login_auto"> <!--자동 로그인 체크박스-->
+                                    <span>자동로그인</span>
+                                </lable>
+                            </p>
+                            <a href="#" class="idpw_search">아이디(이메일)/비밀번호 찾기</a> <!--아이디 비밀번호 찾기 링크-->
+                        </div>
+                        <button type="submit" id="login_btn" >로그인</button> <!--서버로 전송하는 로그인 sumbit 버튼-->
+                </fieldset>
+            </form>
+            <a href="../signup/signup.html" class="join_link">회원가입</a> <!--회원가입 링크-->
+        </main> 
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!--
+    Author : 이준형
+    File Name : login_prototype.html
+    Format : HTML
+    Description : 로그인 기능이 정상 작동하는지를 확인하는 테스트 페이지; 현재 사용하지 않음
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+</head>
+<body>
+    <div id="login_wrap">
+        <div class="contents">
+            <h1 id="login_title" class="title">Log in</h1>
+            <form id="login_form" action="login.php" method="post">
+                <div>
+                <p><input type="text" name="ID" id="ID" placeholder="ID" required></p>
+                <p><input type="password" name="password" id="pasword" placeholder="Password" required></p>
+                </div>
+                <footer><input type="submit" value="log in" class="form_btn"></footer>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

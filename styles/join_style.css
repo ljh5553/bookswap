@@ -1,0 +1,83 @@
+main #joinFrm {border-bottom:1px solid #ccc; margin-bottom:20px; padding-bottom:20px;}
+
+main #joinFrm fieldset ul li { /*로그인 필드셋 */
+    border:1px solid #ccc; background: #fff; 
+    display:flex; flex-flow:row nowrap;
+    margin-bottom: 18px;
+}
+
+main #joinFrm fieldset legend{
+    line-height: 2;
+}
+
+
+main #joinFrm fieldset ul .notice { /*에러메시지 스타일 */
+    
+    padding: 10px; display:none;
+    border:0px;
+}
+
+
+main #joinFrm fieldset ul li .id { /*아이디 입력창 */
+    border-right: 1px solid #ccc; 
+    padding:20px; width:25px;
+    background-color: #f5f5f5;
+    position:relative;
+}
+main #joinFrm fieldset ul li .id::after{ /*아이디 입력창의 삽입 이미지 */
+    content:''; display: block;
+    background-image:url(../image/icon.svg);
+    background-position:0 0;
+    width:21px; height:21px;
+    position:absolute; left:22px; top:11px;
+}
+main #joinFrm fieldset ul li .pw { /*비밀번호 입력창 */
+    border-right: 1px solid #ccc; 
+    padding:20px; width:25px;
+    background-color: #f5f5f5;
+    position:relative;
+}
+main #joinFrm fieldset ul li .pw::after{ /*비밀번호 입력창의 삽입 이미지 */
+    content:''; display: block;
+    background-image:url(../image/icon.svg);
+    background-position:-21px 0;
+    width:21px; height:21px;
+    position:absolute; left:22px; top:9px;
+}
+
+main #joinFrm fieldset ul li .nick_name { /*비밀번호 입력창 */
+    border-right: 1px solid #ccc; 
+    padding:20px; width:25px;
+    background-color: #f5f5f5;
+    position:relative;
+}
+
+main #joinFrm fieldset ul li .nick_name::after{
+    content:''; display: block;
+    background-image:url(../image/nickName.jpg);
+    background-position: 53px -18px;
+    width: 35px;
+    height: 33px;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+}
+
+main #joinFrm fieldset ul li span input { /*입력창에 일괄 적용되는 스타일 */
+    width:400px;
+    height: 40px;
+    border: 0;
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+main #joinFrm fieldset #join_btn {
+    background:#0074e9;
+    width:100%; color:#fff; padding:15px 0;
+    font-size:18px;
+}
+main #check_btn{
+    position:absolute;
+    top: 173px;
+    right: 382px;
+}
