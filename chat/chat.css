@@ -33,7 +33,16 @@ form
 	background		: #ffffe3;
 	font-size		: 0;
 }
-form input#name
+form input#sender
+{
+	width			: 90px;
+	margin-right	: 5px;
+	padding			: 2px;
+	border			: 1px solid #ccc;
+	font-size		: 9pt;
+	font-family		: 'dotum', '돋움';
+}
+form input#receiver
 {
 	width			: 90px;
 	margin-right	: 5px;

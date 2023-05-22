@@ -22,13 +22,13 @@
     if($row_count1 > 0) {
         $sql2 = "UPDATE user SET active = 1 WHERE user_id= '$email' AND hash = '$hash' AND active = 0";
         $result2 = sq($sql2) or die("result2에 문제가 있습니다.");
-        echo "<script>alert('계정이 활성화 되었습니다 ! 로그인 후 이용해주세요 !'); location.href='../index.html'</script>";
+        echo "<script>alert('계정이 활성화 되었습니다 ! 로그인 후 이용해주세요 !'); location.href='../index.php'</script>";
     } else {
-        echo "<script>alert('이미 활성화 되어있는 계정이거나 유효하지 않는 URL입니다. !'); location.href='../index.html'</script>";
+        echo "<script>alert('이미 활성화 되어있는 계정이거나 유효하지 않는 URL입니다. !'); location.href='../index.php'</script>";
     }
     
     } else {
-        echo "<script>alert('이미 활성화 되어있는 계정이거나 유효하지 않는 URL입니다. !'); location.href='../index.html'</script>";
+        echo "<script>alert('이미 활성화 되어있는 계정이거나 유효하지 않는 URL입니다. !'); location.href='../index.php'</script>";
     }
 
 ?>

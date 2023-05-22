@@ -55,7 +55,7 @@
 
             $sql2 = "INSERT INTO user VALUES(NULL, '$ID', '$PW1', '$NICKNAME', 0, '$hash')";
             $result2 = sq($sql2);
-            echo "<script>alert('성공적으로 회원가입되었습니다. 이메일로 계정을 인증해주세요.');location.href = '../index.html';</script>";
+            echo "<script>alert('성공적으로 회원가입되었습니다. 이메일로 계정을 인증해주세요.');location.href = '../index.php';</script>";
         } else {
             echo "<script>alert('이미 같은 ID로 가입한 유저가 있습니다.'); history.back();</script>";
         }

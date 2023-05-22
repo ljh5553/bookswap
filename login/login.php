@@ -35,7 +35,8 @@
             $fet=mysqli_fetch_array($result);
             $_SESSION['ID']=$fet['user_id'];
             $_SESSION['PW']=$fet['user_password'];
-            echo "<script>location.href='./login_success_test.html';</script>";
+            $_SESSION['NICK']=$fet['user_nickname'];
+            echo "<script>location.href='../index.php';</script>";
             // 위 echo 부분은 로그인 성공 시 연결할 페이지로 바꿔줘야함!!
         }
     } else {

@@ -7,6 +7,19 @@
     <title>Main Page</title>
 </head>
 <body>
+    <?php
+    include "./db_info.php";
+    
+    session_save_path("./session");
+    session_start();
+    if(isset($_SESSION['ID']))
+    {
+        $ID = $_SESSION['ID'];
+        $NICKNAME = $_SESSION['NICK'];
+        echo $NICKNAME . "님 환영합니다!";
+    }
+    ?>
+
     <h1>세상에서 가장 단촐한 메인 페이지</h1>
     <button type="button" onclick="location.href='./signup/signup.html' ">회원가입</button>
     <button type="button" onclick="location.href='./login/login.html' ">로그인</button>
