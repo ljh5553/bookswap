@@ -27,6 +27,7 @@
     <h1>세상에서 가장 단촐한 메인 페이지</h1>
     <button type="button" onclick="location.href='./signup/signup.html' ">회원가입</button>
     <button type="button" onclick="location.href='./login/login.html' ">로그인</button>
-    <button type="button" onclick="location.href='./chat/chat.html' ">채팅</button>
+    <button type="button" onclick="location.href='./chat/chat.php' ">채팅</button>
+    <button type="button" onclick="location.href='./logout/logout.php' ">로그아웃</button>
 </body>
 </html>

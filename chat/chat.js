@@ -52,11 +52,11 @@ var chatManager = new function(){
 		for(var i=0; i<data.length; i++)
 		{
 			dt = document.createElement('dt');
-			dt.appendChild(document.createTextNode(data[i].sender + data[i].date));
+			dt.appendChild(document.createTextNode(data[i].sender));
 			o.appendChild(dt);
 
 			dd = document.createElement('dd');
-			dd.appendChild(document.createTextNode(data[i].msg));
+			dd.appendChild(document.createTextNode(data[i].msg  + " (" + data[i].date + ")"));
 			o.appendChild(dd);
 		}
 
