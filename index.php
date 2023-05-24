@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../styles/reset.css">
         <link rel="stylesheet" href="../styles/main_page.css">
         <link rel="stylesheet" href="../styles/slider2.css"> <!--이미지 슬라이드를 위한 css-->
-        <script src="./main.js"></script> <!--임시로 만든 js-->
+        <script src="./index.js"></script> <!--임시로 만든 js-->
     </head>
 
     <body>  
