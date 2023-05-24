@@ -11,7 +11,7 @@
 ?>
 
 <?php
-$target_id = "chattest";
+$target_id = $_GET['user'];
 //target_id 변수는 테스트용이므로 꼭 HTML과 연동해 받는 사람 아이디로 바꿔줘야함
 
 if(!$_GET['date'])

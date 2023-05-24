@@ -37,8 +37,10 @@ var chatManager = new function(){
 		// 중복실행 방지 플래그 ON
 		idle = false;
 
+		var other_user = document.getElementById('receiver').value;
+
 		// Ajax 통신
-		xmlHttp.open("GET", "proc.php?date=" + encodeURIComponent(finalDate), true);
+		xmlHttp.open("GET", "proc.php?date=" + encodeURIComponent(finalDate) + "&user=" + encodeURIComponent(other_user), true);
 		xmlHttp.send();
 	}
 
