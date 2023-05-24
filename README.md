@@ -6,3 +6,5 @@ Term-project of Software Engineering(2023, Spring), Dept. of Software, Gachon Un
 The webpage platform that students exchange their books freely in campus.
 
 Sending email in Authorization function is powered by [PHPMailer](https://github.com/PHPMailer/PHPMailer) which is following LGPL license.
+
+Contributors : JiSeong Kim, TaeHyun Kim, JungWoong Park, SeoIn Lee, JunHyeong Lee, HyeYeong Lee.
