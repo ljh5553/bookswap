@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forgot ID?</title>
+        <link rel="stylesheet" href="../styles/reset.css"> <!--css는 기존의 것들을 활용-->
+        <link rel="stylesheet" href="../styles/style.css"> 
+        <link rel="stylesheet" href="../styles/join_style.css">
+        <link rel="stylesheet" href="../styles/links.css"> <!--하단의 링크의 css-->
+        <script src="./finding.js"></script> <!--임시로 만든 js-->
+    </head>
+    <body>
+        <?php require_once("../header/header.php"); ?>
+        <h1><a href="../index.php"><img src="../image/logo.jpg" alt="로고"></a></h1> <!--로고를 누르면 메인페이지로 이동-->
+        <main>
+            <form action="./find_id.php" method="post" id="joinFrm"> <!--join프레임 재활용-->
+                <fieldset>
+                    <legend class="skip">id 찾기</legend>
+
+                    <ul>
+                        <li>
+                            <span class="nick_name"><!--배경이미지(닉네임)--></span>
+                            <span><input type="text" name="nickname" id="nickname" placeholder="닉네임"></span>
+                        </li>
+                    </ul>
+
+                    <button type="submit" id="join_btn" >아이디찾기</button> <!--닉네임을 대조해서 그 닉네임을 가진 아이디를 DB에서 가져오는 형식으로.-->
+                    <!--join 버튼 재활용-->
+                </fieldset>
+
+            </form>
+
+            <div class="links">
+                <a href="./find_pw.html">비밀번호 찾기</a> | <a href="../login/login.html">로그인</a> | <a href="../signup/signup.html">회원가입</a>
+    
+            </div>
+
+
+        </main>
+
+    </body>
+</html>

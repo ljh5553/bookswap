@@ -1,0 +1,45 @@
+<!--
+    Author : 박정웅
+    File Name : delete.html
+    Format : HTML
+    Description : 회원탈퇴 페이지
+    Note: 회원탈퇴 버튼을 누를 시 submit버튼으로 아이디와 비번이 서버로 가고 서버가 해당 정보의 계정을 찾으면 회원탈퇴 ,
+    회원탈퇴가 성공하면 성공했다고, 실패했으면 정보가 틀렸다는 알림창을 띄워주는 코드 추가 필요
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>login</title>
+        <link rel="stylesheet" href="../styles/reset.css"> <!--css는 기존의 것들을 활용-->
+        <link rel="stylesheet" href="../styles/style.css">
+        <script src="./delete.js"></script> <!--임시로 만든 js-->
+    </head>
+
+    <body>
+    <h1><a href="..index.php"><img src="../image/logo.jpg" alt="로고"></a></h1> <!--로고를 누르면 메인페이지로 이동-->
+        <main>
+            <form action="#" method="post" id="loginFrm"> <!--login프레임 재활용-->
+                <fieldset>
+                    <legend class="skip">회원탈퇴 양식</legend>
+                        <ul>
+                            <li>
+                                <span class="id"><!--배경이미지(메일)--></span>
+                                <span><input type="text" name="ID" id="ID" placeholder="아이디(이메일)"></span> <!--아이디 입력 칸-->                         
+                            </li>
+                            
+                            <li>
+                                <span class="pw"><!--배경이미지(비번)--></span>
+                                <span><input type="password" name="password" id="password" placeholder="비밀번호"></span>
+                            </li>
+                           
+                        </ul>
+                        <button type="submit" id="delete_btn" style=" background:#e7223d; width:100%; color:#fff; padding:15px 0; font-size:18px; border:1px solid red;">회원탈퇴</button> 
+                </fieldset>
+            </form>
+        </main>
+    </body>
+</html>        

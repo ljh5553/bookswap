@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forgot password?</title>
+        <link rel="stylesheet" href="../styles/reset.css"> <!--css는 기존의 것들을 활용-->
+        <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/join_style.css">
+        <link rel="stylesheet" href="../styles/links.css"> <!--하단의 링크의 css-->
+        <script src="./finding.js"></script> <!--임시로 만든 js-->
+    </head>
+
+    <body>
+    <?php require_once("../header/header.php"); ?>
+        <h1><a href="../index.php"><img src="../image/logo.jpg" alt="로고"></a></h1> <!--로고를 누르면 메인페이지로 이동-->
+            <main>
+                <form action="./find_pw.php" method="post" id="loginFrm"> <!--login프레임 재활용-->
+                    <fieldset>
+                        <legend class="skip">비번찾기</legend>
+                            <ul>
+                                <li>
+                                    <span class="id"><!--배경이미지(메일)--></span>
+                                    <span><input type="text" name="ID" id="ID" placeholder="아이디(이메일)"></span> <!--아이디 입력 칸-->                         
+                                </li>
+                               
+                            </ul>
+
+                            <button type="submit" id="login_btn" >비밀번호 찾기</button> <!--아이디를 DB에서 대조해서 해당 아이디의 비번을 가져오는 형식으로-->
+                            <!--로그인 버튼 재활용-->
+
+                    </fieldset>
+
+                </form>
+
+                <div class="links">
+                    <a href="./find_id.html">아이디 찾기</a> | <a href="../login/login.html">로그인</a> | <a href="../signup/signup.html">회원가입</a>
+        
+                </div>
+
+            </main>
+
+    </body>
+</html>
+
