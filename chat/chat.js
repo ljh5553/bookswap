@@ -52,7 +52,7 @@ var chatManager = new function(){
 		for(var i=0; i<data.length; i++)
 		{
 			dt = document.createElement('dt');
-			dt.appendChild(document.createTextNode(data[i].name));
+			dt.appendChild(document.createTextNode(data[i].user_nickname));
 			o.appendChild(dt);
 
 			dd = document.createElement('dd');
@@ -68,18 +68,18 @@ var chatManager = new function(){
 	this.write = function(frm)
 	{
 		var xmlHttpWrite	= new XMLHttpRequest();
-		var name			= frm.name.value;
+		var receiver		= frm.receiver.value;
 		var msg				= frm.msg.value;
 		var param			= [];
 		
 		// 이름이나 내용이 입력되지 않았다면 실행하지 않음
-		if(name.length == 0 || msg.length == 0)
+		if(receiver.length == 0 || msg.length == 0)
 		{
 			return false;
 		}
 		
 		// POST Parameter 구축
-		param.push("name=" + encodeURIComponent(name));
+		param.push("receiver=" + encodeURIComponent(receiver));
 		param.push("msg=" + encodeURIComponent(msg));
 				
 		// Ajax 통신

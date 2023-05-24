@@ -32,10 +32,9 @@
             session_start();
             $session_path = session_save_path().'/sess_'.session_id();
             session_regenerate_id(true);
-            $fet=mysqli_fetch_array($result);
-            $_SESSION['ID']=$fet['user_id'];
-            $_SESSION['PW']=$fet['user_password'];
-            $_SESSION['NICK']=$fet['user_nickname'];
+            $_SESSION['ID']=$rs->user_id;
+            $_SESSION['PW']=$rs->user_password;
+            $_SESSION['NICK']=$rs->user_nickname;
             echo "<script>location.href='../index.php';</script>";
             // 위 echo 부분은 로그인 성공 시 연결할 페이지로 바꿔줘야함!!
         }
