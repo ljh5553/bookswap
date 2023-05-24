@@ -10,17 +10,17 @@
 <?php
     $ID = $_POST['ID'];
     $PW = $_POST['password'];
-    $sql = 'SELECT * FROM user WHERE user_id = "' . $ID . '" AND user_password "' . $PW . '"';
+    $sql = 'DELETE FROM user WHERE user_id = "' . $ID . '" AND user_password = "' . $PW . '"';
     $result = sq($sql);
-    $row_count = mysqli_num_rows($result);
+    $affected_count = $db->affected_rows;
 
-    if($row_count != 0)
+    if($affected_count == 0)
     {
-        $del = 'DELETE FROM user WHERE user_id = "' . $ID . '" AND user_password "' . $PW . '"';
-        $temp = sq($sql);
+        echo "<script>alert('아이디 또는 비밀번호가 틀립니다.');  history.back();</script>";
     }
     else
     {
-        echo "<script>alert('아이디 또는 비밀번호가 틀립니다.');</script>";
+        echo "<script>alert('삭제되었습니다.'); location.href='../index.php'</script>";
+        require_once("../logout/logout.php");
     }
 ?>

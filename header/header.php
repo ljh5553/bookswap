@@ -22,7 +22,7 @@
                 <?php
                 if(!isset($_SESSION['ID'])) {
                 ?>
-                    <li><?php echo "로그인 해 주세요."?></li>
+                    <li><?php echo "로그인 후 이용하세요."?></li>
                     <li><a href="../login/login.html">로그인</a></li>
                     <li><a href="../finding/find_pw.html">비밀번호 찾기</a></li>
                     <li><a href="../finding/find_id.html">아이디 찾기</a></li>
