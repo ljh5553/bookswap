@@ -16,10 +16,10 @@
     if($row_count != 0)
     {
         $rs = $result->fetch_object();
-        echo "<script>alert('비밀번호는 $rs->user_password 입니다.');</script>";
+        echo "<script>alert('비밀번호는 $rs->user_password 입니다.'); location.href='../login/login.html'</script>";
     }
     else
     {
-        echo "<script>alert('아이디가 없거나 틀립니다.');</script>";
+        echo "<script>alert('아이디가 없거나 틀립니다.'); location.href='../login/login.html'</script>";
     }
 ?>
