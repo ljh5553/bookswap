@@ -7,11 +7,6 @@
 	{
         $ID=$_SESSION['ID'];
     }
-	else
-	{
-        echo "<script>alert('채팅을 사용하려면 먼저 로그인해야 합니다!');</script>";
-        echo "<script>location.href='../login/login.html'</script>";
-    }
 ?>
 
 <?php

@@ -18,6 +18,10 @@
         $NICKNAME = $_SESSION['NICK'];
         echo $NICKNAME . "님 환영합니다!";
     }
+    else
+    {
+        echo "기능을 전부 사용하려면 로그인하세요.";
+    }
     ?>
 
     <h1>세상에서 가장 단촐한 메인 페이지</h1>
