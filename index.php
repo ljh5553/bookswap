@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>main_page</title>
+        <title>Book Swap</title>
         <link rel="stylesheet" href="../styles/reset.css">
         <link rel="stylesheet" href="../styles/main_page.css">
         <link rel="stylesheet" href="../styles/slider2.css"> <!--이미지 슬라이드를 위한 css-->
