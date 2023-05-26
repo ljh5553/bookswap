@@ -51,11 +51,28 @@ a {
   font-size: 1.4rem;
 }
 
+.bt_wrap button {
+  display: inline-block;
+  min-width: 80px;
+  margin-left: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 1.4rem;
+}
+
 .bt_wrap a:first-child {
   margin-left: 0;
 }
 
 .bt_wrap a.on {
+  border-radius: 5px;
+  background: #007aff;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.bt_wrap button.on {
   border-radius: 5px;
   background: #007aff;
   color: #fff;
