@@ -1,10 +1,11 @@
 <!--
-    Author : 이서인
-    File Name : list_main.html
-    Format : HTML
-    Description : 1. 전체화면 파악 목적으로 목업데이터 (2가지) 추가해둔 상태 
-                  2. 글쓴이는 닉네임으로 자동으로 적용되는 형태로 생각하고 구현해두었는데, 
-                  시간이 많이 쓰일 것 같다면 글쓴이 칸은 삭제해도 될 것 같습니다.
+    Author : SeoIn Lee(HTML), JunHyeong Lee(PHP)
+    File Name : list_main.html -> board.php (Modified by JunHyeong Lee)
+    Format : HTML -> PHP
+    Description : 1. added mockup data for testing -> removed mockup and replaced by real data (-JunHyeong Lee)
+                  2. Planned to automatically add post writer by DB, 
+                  but we can remove that part if we don't have enough time
+                  -> added printing post writer feature (-JunHyeong Lee)
 -->
 
 <!DOCTYPE html>
@@ -18,20 +19,21 @@
   </head>
   <body>
     <?php
+        // login session check
         session_save_path("../session");
         session_start();
-        if(isset($_SESSION['ID']))
+        if(isset($_SESSION['ID'])) // if user already login
         {
             $ID = $_SESSION['ID'];
             $NICKNAME = $_SESSION['NICK'];
-            echo $NICKNAME . "님 환영합니다!";
+            //echo $NICKNAME . "님 환영합니다!";
         }
         else
         {
-          ;
+          ; // do nothing in board page
         }
 
-        include_once("../header/header.php");
+        include_once("../header/header.php"); // site common header
     ?>
 
     <h1>
@@ -53,16 +55,17 @@
           </div>
 
           <div>
-            <!--목업 데이터-->
+            <!--Mockup data-->
           </div>
 
           <?php
+          // connect with DB
             include "../db_info.php";
 
-            $sql = 'SELECT * FROM post ORDER BY post_id DESC';
+            $sql = 'SELECT * FROM post ORDER BY post_id DESC'; // select post
             $result = sq($sql);
             
-            while($posting = mysqli_fetch_array($result))
+            while($posting = mysqli_fetch_array($result)) // print all post
             {
               $postid = $posting['post_id'];
               $sub = $posting['subject'];
@@ -88,7 +91,7 @@
           <?php
           }
           ?>
-          <!--로그인 상태일 때만 사용 가능하도록 구현 부탁-->
+          <!--To be implemented : enable posting button when user is logged on -> added requested feature (-JunHyeong Lee)-->
         </div>
       </div>
     </div>

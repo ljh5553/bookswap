@@ -20,18 +20,15 @@
     $img = addslashes(file_get_contents($_FILES['image']['tmp_name']));
     $cont = $_POST['contents'];
     
-    if(is_uploaded_file($_FILES['image']['tmp_name']))
+    if(is_uploaded_file($_FILES['image']['tmp_name'])) // if user is uploaded picture
     {
         $sql = 'UPDATE post SET subject = "' . $sub . '", contents = "' . $cont . '", image = "' . $img . '" WHERE post_id = ' . $postid;
-        $result = sq($sql);
-
-        echo "<script>alert('수정되었습니다.'); location.href='./board.php'</script>";
     }
-    else
+    else // if user is NOT uploaded picture
     {
         $sql = 'UPDATE post SET subject = "' . $sub . '", contents = "' . $cont . '" WHERE post_id = ' . $postid;
-        $result = sq($sql);
-
-        echo "<script>alert('수정되었습니다.'); location.href='./board.php'</script>";
     }
+
+    $result = sq($sql);
+    echo "<script>alert('수정되었습니다.'); location.href='./board.php'</script>";
 ?>

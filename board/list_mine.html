@@ -1,8 +1,10 @@
 <!--
-    Author : 이서인
+    Author : SeoIn Lee
     File Name : list_mine.html
     Format : HTML
-    Description : 현재 사용자가 올린 게시물로, 1번 게시물 기준 목업데이터 상태로 세팅
+    Description : Uploaded posting by current user, set by mockup data of first posting
+                  -> list_mine + list_view = view.php; same page but other button "edit" and "chat"
+                     so i merged them and display necessary button by PHP code. (-JunHyeong Lee)
 -->
 
 <!DOCTYPE html>
@@ -51,7 +53,7 @@
         <div class="bt_wrap">
           <a href="list_main.html">목록</a>
           <a href="list_edit.html" class="on">수정</a>
-          <!--로그인 상태일 때만 사용 가능하도록 구현 부탁-->
+          <!--To be implemented : enable posting button when user is logged on -> not necessary for this page-->
         </div>
       </div>
     </div>
