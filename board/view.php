@@ -13,21 +13,23 @@
     <title>교환 게시물 상세</title>
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/list.css" />
+
+    <script type="text/javascript" language="javascript">
+        function open_pop(frm)
+        {
+            var title = "chatopener";
+            var url = "../chat/chat.php";
+            window.open("", title, "width = 450, height = 750, resizable = no");
+
+            frm.action = url;
+            frm.method = "post";
+            frm.target = title;
+            frm.submit();
+        }
+    </script>
+
   </head>
   <body>
-
-  <script language="JavaScript">
-
-      function post_popup(frm_name)
-      {
-        frm = document.getElementById(frm_name);
-        window.open('', 'viewer', 'width = 1000, height = 700');
-        frm.action = "../chat/chat.html";
-        frm.target = "viewer";
-        frm.method = "post";
-        frm.submit();
-      }
-  </script>
 
   <?php
     session_save_path("../session");
@@ -114,12 +116,12 @@
           <!-- below code is added by junhyeong lee, nickname convey for chatting -->
 
           <?php
-            if(strcmp($NICKNAME, $nick) == 1)
+            if($NICKNAME !== $nick)
             {
           ?>
-            <form name="chatform" action="" method="post">
+            <form name="chatting">
               <input type="hidden" name="target_nick" value="<?php echo $nick?>"/>
-              <input type="button" onClick="post_popup('chatform')" value="채팅">
+              <input type="button" value="채팅" onclick="javascript:open_pop(this.form)">
             </form>
           <?php
             }

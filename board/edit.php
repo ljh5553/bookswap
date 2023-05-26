@@ -56,7 +56,7 @@
           $nick = $rs->writer;
           $cont = $rs->contents;
 
-          if(strcmp($NICKNAME, $nick) == 1)
+          if($NICKNAME !== $nick)
           {
             echo "<script>alert('본인이 작성한 게시글이 아닙니다!');</script>";
             echo "<script>location.href='../board.php'</script>";

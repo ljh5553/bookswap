@@ -11,15 +11,14 @@
 ?>
 
 <?php
-$target_id = $_GET['user'];
-//target_id 변수는 테스트용이므로 꼭 HTML과 연동해 받는 사람 아이디로 바꿔줘야함
+$target_nick = $_GET['user'];
 
 if(!$_GET['date'])
 {
 	$_GET['date'] = date('Y-m-d H:i:s');
 
 	$db->query('SET NAMES utf8');
-	$res = $db->query('SELECT * FROM chat WHERE (sender = "' . $ID . '" AND receiver = "' . $target_id . '") OR (sender = "' . $target_id . '" AND receiver = "' . $ID . '")');
+	$res = $db->query('SELECT * FROM chat WHERE (sender = "' . $NICKNAME . '" AND receiver = "' . $target_nick . '") OR (sender = "' . $target_nick . '" AND receiver = "' . $NICKNAME . '")');
 	$data = array();
 	$date = $_GET['date'];
 
@@ -35,7 +34,7 @@ if(!$_GET['date'])
 else
 {
 	$db->query('SET NAMES utf8');
-	$res = $db->query('SELECT * FROM chat WHERE date > "' . $_GET['date'] . '" AND ((sender = "' . $ID . '" AND receiver = "' . $target_id . '") OR (sender = "' . $target_id . '" AND receiver = "' . $ID . '"))');
+	$res = $db->query('SELECT * FROM chat WHERE date > "' . $_GET['date'] . '" AND ((sender = "' . $NICKNAME . '" AND receiver = "' . $target_nick . '") OR (sender = "' . $target_nick . '" AND receiver = "' . $NICKNAME . '"))');
 	$data = array();
 	$date = $_GET['date'];
 	

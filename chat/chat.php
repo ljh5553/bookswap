@@ -15,6 +15,7 @@
     {
         $ID = $_SESSION['ID'];
         $NICKNAME = $_SESSION['NICK'];
+        $target = $_POST['target_nick'];
         //echo $NICKNAME . "님 환영합니다!";
     }
 	else
@@ -26,7 +27,7 @@
 
 <dl id="list"></dl>
 <form onsubmit="chatManager.write(this); return false;">
-	<input name="receiver" id="receiver" type="text" />
+	<input name="receiver" id="receiver" type="hidden" value="<?php echo $target; ?>"/>
 	<input name="msg" id="msg" type="text" />
 	<input name="btn" id="btn" type="submit" value="전송" />
 </form>
