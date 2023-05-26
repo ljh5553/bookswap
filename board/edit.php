@@ -27,7 +27,20 @@
       </div>
 
       <?php
+        session_save_path("../session");
+        session_start();
+        if(isset($_SESSION['ID']))
+        {
+            $ID = $_SESSION['ID'];
+            $NICKNAME = $_SESSION['NICK'];
+        }
+        else
+        {
+          echo "<script>alert('게시글을 수정하려면 로그인해야 합니다!');</script>";
+          echo "<script>location.href='../login/login.html'</script>";
+        }
         include "../db_info.php";
+        include_once("../header/header.php");
 
         $postid = $_POST['postid'];
 
@@ -42,6 +55,12 @@
           $sub = $rs->subject;
           $nick = $rs->writer;
           $cont = $rs->contents;
+
+          if(strcmp($NICKNAME, $nick) == 1)
+          {
+            echo "<script>alert('본인이 작성한 게시글이 아닙니다!');</script>";
+            echo "<script>location.href='../board.php'</script>";
+          }
         }
         else
         {
@@ -49,7 +68,7 @@
         }
       ?>
       <div class="board_write_wrap">
-      <form name="edit" action="edit.php" method="post">
+      <form name="edit" action="edit_proc.php" method="post" enctype="multipart/form-data">
         <div class="board_write">
           <div class="title">
             <dl>
@@ -64,6 +83,7 @@
               </dd>
             </dl>
           </div>
+          <!--
           <div class="info">
             <dl>
               <dt>비밀번호</dt>
@@ -77,6 +97,7 @@
               </dd>
             </dl>
           </div>
+          -->
           <div class="info">
             <dl>
               <dt>첨부파일</dt>
@@ -86,7 +107,13 @@
             </dl>
           </div>
           <div class="info">
-            <img src="data:image;base64,'.base64_encode($rs->image).'" style="height: 300px" />
+            <?php 
+                $img_rs=mysqli_fetch_array(sq('SELECT image FROM post WHERE post_id = '. $postid));
+                if(!is_null($img_rs['image']))
+                {
+                  echo '<img src="data:image;base64,'. base64_encode($img_rs['image']).'" style="height: 300px" />';
+                }
+            ?>
           </div>
           <div class="cont">
             <textarea name="contents" placeholder="내용 입력" required>
@@ -98,9 +125,10 @@
         <div class="bt_wrap">
             <button type="sumbit" id="edit_btn">완료</button>
       </form>
-          <a href="list_mine.html">취소</a>
+          <a href="javascript:window.history.back();">취소</a>
         </div>
       </div>
     </div>
+    <?php include_once("./header/footer.php")?>
   </body>
 </html>

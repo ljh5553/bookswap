@@ -15,7 +15,7 @@
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
 
-    <link rel="stylesheet" href="./styles/main_ver2.css?v=<?php echo date("Y-m-d H:i:s", time());?>" />
+    <link rel="stylesheet" href="./styles/main_ver2.css" />
   </head>
 
   <body>
@@ -33,7 +33,7 @@
 
     <div class="main">
       <h1 class="main_h1">
-        <a class="title" href="./list/list_main.html">Bookswap</a> is a
+        <a class="title" href="./board.board.php">Bookswap</a> is a
         platform <br />for exchanging unnecessary books <br />for necessary
         books
       </h1>
@@ -44,7 +44,7 @@
       </p>
 
       <div>
-        <a class="start_btn" href="../list/list_main.html">시작하기</a>
+        <a class="start_btn" href="./board.board.php">시작하기</a>
       </div>
     </div>
     

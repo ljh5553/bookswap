@@ -26,7 +26,7 @@
         <p>교환할 책을 등록하세요</p>
       </div>
       <div class="board_write_wrap">
-        <form name="write" action="write.php" method="post" enctype="multipart/form-data">
+        <form name="write" action="write_proc.php" method="post" enctype="multipart/form-data">
           <div class="board_write">
             <div class="title">
               <dl>
@@ -61,9 +61,10 @@
         <div class="bt_wrap">
           <button type="sumbit" id="write_btn">등록</button>
           </form>
-          <a href="list_main.html">취소</a>
+          <a href="javascript:window.history.back();">취소</a>
         </div>
       </div>
     </div>
+    <?php include_once("./header/footer.php")?>
   </body>
 </html>

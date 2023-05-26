@@ -24,12 +24,14 @@
         {
             $ID = $_SESSION['ID'];
             $NICKNAME = $_SESSION['NICK'];
-            //echo $NICKNAME . "님 환영합니다!";
+            echo $NICKNAME . "님 환영합니다!";
         }
-      else
-      {
-        ;
-      }
+        else
+        {
+          ;
+        }
+
+        include_once("../header/header.php");
     ?>
 
     <h1>
@@ -69,7 +71,7 @@
               <div>
               <div class="num"><?php echo $postid?></div>
               <div class="title">
-                <a href="./read.php?id=<?php echo $postid; ?>">
+                <a href="./view.php?id=<?php echo $postid; ?>">
                   <?php echo $sub?>
                 </a>
               </div>
@@ -78,35 +80,11 @@
           <?php
             }
           ?>
-
-          <!--
-          <div>
-            <div class="num">2</div>
-            <div class="title">
-              <a href="list_view.html"
-                >'데이터베이스시스템(7판)'->'데이터베이스 설계와 관계형 이론2/e'
-                교환</a
-              >
-            </div>
-            <div class="writer">이승주</div>
-          </div>
-          <div>
-            <div class="num">1</div>
-            <div class="title">
-              <a href="list_mine.html"
-                >'혼자 공부하는 C언어'로 '혼자 공부하는 파이썬' 교환
-                원합니다.</a
-              >
-            </div>
-            <div class="writer">윤인성</div>
-          </div>
-        </div>
-          -->
         <div class="bt_wrap">
           <?php
           if(isset($_SESSION['ID'])) {
           ?>
-          <a href="list_write.html" class="on">등록</a>
+          <a href="./write.php" class="on">등록</a>
           <?php
           }
           ?>
@@ -114,5 +92,6 @@
         </div>
       </div>
     </div>
+    <?php include_once("./header/footer.php")?>
   </body>
 </html>

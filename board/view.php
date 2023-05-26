@@ -37,10 +37,13 @@
         $ID = $_SESSION['ID'];
         $NICKNAME = $_SESSION['NICK'];
     }
-	else
-	{
-		;
-	}
+	  else
+	  {
+		  echo "<script>alert('게시글을 보려면 로그인해야 합니다!');</script>";
+      echo "<script>location.href='../login/login.html'</script>";
+	  }
+
+    include_once("../header/header.php");
     ?>
 
     <h1>
@@ -106,7 +109,7 @@
           </div>
         </div>
         <div class="bt_wrap">
-          <a href="list_main.html">목록</a>
+          <a href="./board.php">목록</a>
 
           <!-- below code is added by junhyeong lee, nickname convey for chatting -->
 
@@ -139,5 +142,6 @@
         </div>
       </div>
     </div>
+    <?php include_once("./header/footer.php")?>
   </body>
 </html>
