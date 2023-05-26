@@ -3,8 +3,8 @@
 <head>
 <title>Chatting</title>
 <meta charset="utf-8">
-<script type="text/javascript" src="chat.js"></script>
-<link rel="stylesheet" type="text/css" href="chat.css" />
+<script type="text/javascript" src="./chat.js?v=<?php echo date("Y-m-d H:i:s", time());?>"></script>
+<link rel="stylesheet" type="text/css" href="../styles/chat.css?v=<?php echo date("Y-m-d H:i:s", time());?>">
 </head>
 <body>
 	
@@ -15,7 +15,7 @@
     {
         $ID = $_SESSION['ID'];
         $NICKNAME = $_SESSION['NICK'];
-        echo $NICKNAME . "님 환영합니다!";
+        //echo $NICKNAME . "님 환영합니다!";
     }
 	else
 	{

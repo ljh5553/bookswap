@@ -1,0 +1,141 @@
+.main {
+  color: #585858;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 16pt;
+  font-weight: 300;
+  line-height: 1.75;
+  margin: 150px;
+}
+
+.title {
+  -moz-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  -webkit-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  -ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  transition: border-bottom-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  color: #007aff;
+  border-bottom: dotted 1px rgba(88, 88, 88, 0.5);
+}
+
+.title:hover {
+  border-bottom-color: transparent;
+  color: #000000 !important;
+}
+
+p {
+  margin: 0 0 2em 0;
+}
+
+.main_h1 {
+  font-size: 2.75em;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 1em 0;
+  letter-spacing: -0.035em;
+}
+
+h1 a {
+  color: inherit;
+}
+
+.start_btn {
+  background-color: #007aff;
+  border-radius: 4px;
+  display: inline-block;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 16px;
+  padding: 7px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.start_btn:hover {
+  border-bottom-color: transparent;
+  color: #d8dcff !important;
+}
+
+/*top menu*/
+
+.wrapper {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+header {
+  height: 75px;
+  background-color: black;
+  border: 1px solid #253342;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+header h1 {
+  color: white;
+  line-height: 30px;
+  display: block;
+  float: left;
+  font-size: 30px;
+}
+.menu {
+  position: absolute;
+  right: 10px;
+}
+.menu li {
+  float: right;
+}
+.menu a {
+  line-height: 40px;
+  color: white;
+  padding: 0 15px;
+  display: block;
+  float: right;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.menu li a:hover {
+  /*마우스 올리면 파란색으로 변경 */
+  color: #007aff;
+}
+
+/*footer */
+
+section {
+  width: 100%;
+  height: 590px;
+  top: 100px;
+  position: absolute;
+}
+
+.inner {
+  display: inline-block;
+}
+
+.out {
+  text-align: center;
+}
+
+footer {
+  width: 100%;
+  height: 90px;
+  bottom: 0px;
+  position: absolute;
+  border-bottom: 1px solid #c4c4c4;
+  padding-top: 10px;
+  color: #808080;
+  font-size: 11px;
+}
+
+footer p {
+  margin-top: 150px;
+  margin-bottom: 0;
+}
+
+footer p span {
+  display: inline-block;
+  margin-left: 140px;
+}

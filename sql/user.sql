@@ -12,5 +12,5 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_nickname` varchar(20) NOT NULL,
   `active` tinyint(4),
   `hash` varchar(512),
-  PRIMARY KEY (`user_number`)
+  PRIMARY KEY (`user_number`, `user_id`, `user_nickname`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;

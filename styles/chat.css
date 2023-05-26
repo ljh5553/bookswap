@@ -1,0 +1,60 @@
+#list {
+  overflow-y: scroll;
+  width: 400px;
+  height: 600px;
+  margin: 0;
+  padding: 5px;
+  border: 1px solid #8d8d8d;
+  font-size: 9pt;
+  font-family: "dotum", "돋움";
+}
+#list dt {
+  float: left;
+  width: 100px;
+  font-weight: 700;
+}
+#list dd {
+  float: left;
+  clear: right;
+  width: 270px;
+  margin: 0;
+  margin-bottom: 5px;
+}
+form {
+  text-align: center;
+  width: 400px;
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid #8d8d8d;
+  background: #c6c6c6;
+  font-size: 0;
+}
+form input#sender {
+  width: 90px;
+  margin-right: 5px;
+  padding: 2px;
+  border: 1px solid #8d8d8d;
+  font-size: 9pt;
+  font-family: "dotum", "돋움";
+}
+form input#receiver {
+  width: 90px;
+  margin-right: 5px;
+  padding: 2px;
+  border: 1px solid #8d8d8d;
+  font-size: 9pt;
+  font-family: "dotum", "돋움";
+}
+form input#msg {
+  width: 240px;
+  margin-right: 5px;
+  padding: 2px;
+  border: 1px solid #8d8d8d;
+  font-size: 9pt;
+  font-family: "dotum", "돋움";
+}
+form input#btn {
+  width: 48px;
+  font-size: 9pt;
+  font-family: "dotum", "돋움";
+}
