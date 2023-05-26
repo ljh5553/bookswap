@@ -13,5 +13,5 @@ CREATE TABLE IF NOT EXISTS `post` (
   `image` longblob,
   `date` datetime NOT NULL,
   PRIMARY KEY (`post_id`),
-  FOREIGN KEY (`writer`) REFERENCES `user` (`user_nickname`);
+  FOREIGN KEY (`writer`) REFERENCES `user` (`user_nickname`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;

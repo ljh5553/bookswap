@@ -33,7 +33,7 @@
 
     <div class="main">
       <h1 class="main_h1">
-        <a class="title" href="../list/list_main.html">Bookswap</a> is a
+        <a class="title" href="./list/list_main.html">Bookswap</a> is a
         platform <br />for exchanging unnecessary books <br />for necessary
         books
       </h1>

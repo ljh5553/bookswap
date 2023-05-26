@@ -26,7 +26,7 @@
         <p>교환할 책을 등록하세요</p>
       </div>
       <div class="board_write_wrap">
-        <form name="write" action="write.php" method="post">
+        <form name="write" action="write.php" method="post" enctype="multipart/form-data">
           <div class="board_write">
             <div class="title">
               <dl>

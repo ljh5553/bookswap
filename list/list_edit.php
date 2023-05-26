@@ -29,9 +29,9 @@
       <?php
         include "../db_info.php";
 
-        $postid = $_GET['id'];
+        $postid = $_POST['postid'];
 
-        $sql = 'SELECT * FROM post WHERE post_id = ' . '$postid' . '"';
+        $sql = 'SELECT * FROM post WHERE post_id = ' . $postid;
         $result = sq($sql);
         $row_count = mysqli_num_rows($result);
 
@@ -41,7 +41,6 @@
 
           $sub = $rs->subject;
           $nick = $rs->writer;
-          $image = $rs->image;
           $cont = $rs->contents;
         }
         else
@@ -87,7 +86,7 @@
             </dl>
           </div>
           <div class="info">
-            <img src="data:image;base64,'.base64_encode($image).'" style="height: 300px" />
+            <img src="data:image;base64,'.base64_encode($rs->image).'" style="height: 300px" />
           </div>
           <div class="cont">
             <textarea name="contents" placeholder="내용 입력" required>

@@ -18,8 +18,18 @@
   </head>
   <body>
     <?php
-        session_save_path("./session");
-        if (isset($_SESSION)){session_start();}
+        session_save_path("../session");
+        session_start();
+        if(isset($_SESSION['ID']))
+        {
+            $ID = $_SESSION['ID'];
+            $NICKNAME = $_SESSION['NICK'];
+            //echo $NICKNAME . "님 환영합니다!";
+        }
+      else
+      {
+        ;
+      }
     ?>
 
     <h1>
@@ -57,7 +67,7 @@
               $nick = $posting['writer'];
           ?>
               <div>
-              <div class="num"><?php echo $id?></div>
+              <div class="num"><?php echo $postid?></div>
               <div class="title">
                 <a href="./read.php?id=<?php echo $postid; ?>">
                   <?php echo $sub?>

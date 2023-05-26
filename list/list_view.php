@@ -59,7 +59,7 @@
 
         $postid = $_GET['id'];
 
-        $sql = 'SELECT * FROM post WHERE post_id = ' . '$postid' . '"';
+        $sql = 'SELECT * FROM post WHERE post_id = ' . $postid;
         $result = sq($sql);
         $row_count = mysqli_num_rows($result);
 
@@ -69,7 +69,6 @@
 
           $sub = $rs->subject;
           $nick = $rs->writer;
-          $image = $rs->image;
           $cont = $rs->contents;
         }
         else
@@ -93,9 +92,15 @@
               <dd><?php echo $nick?></dd>
             </dl>
           </div>
+          <?php 
+                $img_rs=mysqli_fetch_array(sq('SELECT image FROM post WHERE post_id = '. $postid));
+                if(!is_null($img_rs['image']))
+                {
+          ?>
           <div class="info">
-            <img src="data:image;base64,'.base64_encode($image).'" style="height: 300px" />
+            <?php echo '<img src="data:image;base64,'. base64_encode($img_rs['image']).'" style="height: 300px" />'; ?>
           </div>
+          <?php } ?>
           <div class="cont">
             <?php echo $cont?>
           </div>
@@ -106,7 +111,7 @@
           <!-- below code is added by junhyeong lee, nickname convey for chatting -->
 
           <?php
-            if(!strcmp($NICKNAME, $nick))
+            if(strcmp($NICKNAME, $nick) == 1)
             {
           ?>
             <form name="chatform" action="" method="post">
@@ -118,7 +123,10 @@
             else
             {
           ?>
-            <input type="submit" action="./edit.php" value="수정">
+          <form name="editform" action="./list_edit.php" method="post">
+            <input type="hidden" name="postid" value="<?php echo $postid; ?>"/>
+            <button type="submit" id="edit_btn" >수정</button>
+          </form>
           <?php
             }
           ?>
