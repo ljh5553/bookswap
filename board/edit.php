@@ -65,6 +65,7 @@
         else
         {
           echo "<script>alert('게시글을 불러오는 중 오류가 발생했습니다.');</script>";
+          echo "<script>history.back();</script>";
         }
       ?>
       <div class="board_write_wrap">
