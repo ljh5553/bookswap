@@ -59,7 +59,7 @@
           <?php
             include "../db_info.php";
 
-            $sql = 'SELECT * FROM post';
+            $sql = 'SELECT * FROM post ORDER BY post_id DESC';
             $result = sq($sql);
             
             while($posting = mysqli_fetch_array($result))
