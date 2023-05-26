@@ -126,7 +126,7 @@
             else
             {
           ?>
-          <form name="editform" action="./list_edit.php" method="post">
+          <form name="editform" action="./edit.php" method="post">
             <input type="hidden" name="postid" value="<?php echo $postid; ?>"/>
             <button type="submit" id="edit_btn" >수정</button>
           </form>

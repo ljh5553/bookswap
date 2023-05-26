@@ -34,6 +34,7 @@
                 <dd><input type="text" name="subject" placeholder="제목 입력" /></dd>
               </dl>
             </div>
+            <!--
             <div class="info">
               <dl>
                 <dt>비밀번호</dt>
@@ -42,6 +43,7 @@
                 </dd>
               </dl>
             </div>
+            -->
             <div class="info">
               <dl>
                 <dt>첨부파일</dt>

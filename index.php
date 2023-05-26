@@ -44,7 +44,7 @@
       </p>
 
       <div>
-        <a class="start_btn" href="./board.board.php">시작하기</a>
+        <a class="start_btn" href="./board/board.php">시작하기</a>
       </div>
     </div>
     
