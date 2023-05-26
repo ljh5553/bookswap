@@ -19,7 +19,7 @@
         {
             var title = "chatopener";
             var url = "../chat/chat.php";
-            window.open("", title, "width = 450, height = 750, resizable = no");
+            window.open("", title, "width = 430, height = 666, resizable = no");
 
             frm.action = url;
             frm.method = "post";
