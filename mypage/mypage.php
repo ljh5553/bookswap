@@ -19,8 +19,8 @@
     />
     <meta name="generator" content="Hugo 0.111.3" />
     <title>My Page</title>
-    <link rel="stylesheet" href="../styles/style.css?v=<?php echo date("Y-m-d H:i:s", time());?>" />
-    <link rel="stylesheet" href="../styles/my_page.css?v=<?php echo date("Y-m-d H:i:s", time());?>" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/my_page.css" />
     <link
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/album/"
@@ -63,6 +63,25 @@
   </head>
 
   <body>
+
+    <?php
+          // login session check
+          session_save_path("../session");
+          session_start();
+          if(isset($_SESSION['ID']))
+          {
+              $ID = $_SESSION['ID'];
+              $NICKNAME = $_SESSION['NICK'];
+          }
+          else
+          {
+            // access deny if user is not logged in
+            echo "<script>alert('게시글 현황을 확인하려면 로그인해야 합니다!');</script>";
+            echo "<script>location.href='../login/login.html'</script>";
+          }
+
+    ?>
+
     <div
       class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
     >
@@ -150,10 +169,10 @@
               <br />선택한 책의 교환신청 및 등록해놓은 책들을 보실 수 있습니다.
             </p>
             <p>
-              <a href="../index.php" class="btn btn-primary my-2"
+              <a href="../board/board.php" class="btn btn-primary my-2"
                 >메인으로 돌아가기</a
               >
-              <!--임시로 시작페이지로 넣어놓음/ 완성되면 main으로 바꿔놓기!-->
+              <!--임시로 시작페이지로 넣어놓음/ 완성되면 main으로 바꿔놓기! -> Modified -->
               <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> 버튼2 나중에 필요하다면 부가적으로 사용-->
             </p>
           </div>
@@ -170,30 +189,67 @@
       <div class="album py-5 bg-body-tertiary">
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <!--column1은 유저가 책 교환 신청 내역(임의로 column 지정해놓음)-->
+
+          <?php
+          // connect with DB
+            include "../db_info.php";
+
+            $sql = 'SELECT * FROM post WHERE writer = "' . $NICKNAME . '"'; // select post
+            $result = sq($sql);
+            
+            while($posting = mysqli_fetch_array($result)) // print all post
+            {
+              $postid = $posting['post_id'];
+              $sub = $posting['subject'];
+              $nick = $posting['writer'];
+
+              if($NICKNAME === $nick)
+              {
+                $is_mine = 1;
+              }
+              else
+              {
+                $is_mine = 0;
+              }
+              
+          ?>
+
             <div class="col">
               <div class="card shadow-sm">
                 <!--db에서 책 이미지 첨부파일 가져와서 src에다가 경로 저장-->
-                <img
-                  class="bd-placeholder-img card-img-top"
-                  src="../list/list_img/list_ex2.jpg"
-                  width="100%"
-                  height="180"
-                /><rect width="100%" />
+                <?php 
+                $img_rs=mysqli_fetch_array(sq('SELECT image FROM post WHERE post_id = '. $postid));
+                if(!is_null($img_rs['image']))
+                {
+                ?>
+                <?php echo '<img src="data:image;base64,'. base64_encode($img_rs['image']).
+                            '" style="height: 300px" 
+                            class="bd-placeholder-img card-img-top"
+                            width="100%"
+                            height="180"/>'; ?>
+                <?php } ?>
+                <rect width="100%" />
                 <div class="card-body">
                   <!--db에서 책 정보 가져와서 src에다가 경로 저장-->
+                  <?php
+                    if($is_mine === 0)
+                    {
+                      $target_url = "../chat/chat.php";
+                    }
+                    else
+                    {
+                      $target_url = '../board/view.php?id=' . $postid;
+                    }
+                  ?>
                   <p class="card-text">
-                    <a href="../chat/chat.html" class="book_title">
-                      '데이터베이스시스템(7판)'->'데이터베이스 설계와 관계형
-                      이론2/e' 교환
-                    </a>
+                    <a href="<?php echo $target_url; ?>" class="book_title"><?php echo $sub ?></a>
                   </p>
 
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
                     <div class="btn-group">
-                      <!--cancle 버튼 클릭 시 신청 취소-->
+                      <?php if ($is_mine === 0) { ?>
                       <script>
                         function btn() {
                           alert("책 교환 신청이 취소되었습니다.");
@@ -203,49 +259,19 @@
                         type="button"
                         class="btn btn-sm btn-outline-secondary"
                         onclick="javascript:btn()"
-                      >
-                        Cancle
-                      </button>
+                      >수정</button>
+                      <?php } else { ?>
+                        <form name="editform" action="../board/edit.php" method="post">
+                          <input type="hidden" name="postid" value="<?php echo $postid; ?>"/>
+                          <button type="submit" id="edit_btn" class="btn btn-sm btn-outline-secondary">수정</button>
+                        </form>
+                      <?php } ?>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!--column2은 유저가 등록한 책 내역(임의로 column 지정해놓음)-->
-            <div class="col">
-              <div class="card shadow-sm">
-                <img
-                  class="bd-placeholder-img card-img-top"
-                  src="../list/list_img/list_ex1.jpg"
-                  width="100%"
-                  height="180"
-                /><rect width="100%" />
-                <div class="card-body">
-                  <!--db에서 유저 책 정보 얻어온다-->
-                  <p class="card-text">
-                    <a href="../list/list_view.html" class="book_title">
-                      '혼자 공부하는 C언어'로 '혼자 공부하는 파이썬' 교환
-                      원합니다.
-                    </a>
-                  </p>
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <div class="btn-group">
-                      <!--올린 글 수정할 수 있는 버튼(수정 페이지로 이동: book_change.html)-->
-                      <button
-                        type="button"
-                        class="btn btn-sm btn-outline-secondary"
-                        onclick="location.href='../list/list_edit.html'"
-                      >
-                        Edit
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <?php } ?>
           </div>
         </div>
       </div>

@@ -32,8 +32,8 @@
                     <li><?php echo $NICKNAME . "님 환영합니다!"?></a></li>
                     <li><a href="../logout/logout.php">로그아웃</a></li>
                     <li><a href="../delete/delete.html">탈퇴하기</a></li>
-                    <li><a href="../board/write.php">책 등록</a></li> <!--추후 연결링크 수정-->
-                    <li><a href="../board/board.php">거래현황</a></li> <!--추후 연결링크 수정-->
+                    <li><a href="../board/board.php">게시판</a></li> <!--추후 연결링크 수정-->
+                    <li><a href="../mypage/mypage.php">내 거래현황</a></li> <!--추후 연결링크 수정-->
                 <?php
                 }
                 ?>
