@@ -1,6 +1,6 @@
 <!--
     Author : JunHyeong Lee
-    File Name : write.php
+    File Name : write_proc.php
     Format : PHP
     Description : Write posting on board by connecting MariaDB
 -->
@@ -15,6 +15,7 @@
 ?>
 
 <?php
+// check login status by session
     session_save_path("../session");
     session_start();
     if(isset($_SESSION['ID']))
@@ -31,18 +32,19 @@
 ?>
 
 <?php
+    // variables for posting
     $sub = $_POST['subject'];
     $img = addslashes(file_get_contents($_FILES['image']['tmp_name']));
     $cont = $_POST['contents'];
 
-    if(!is_uploaded_file($_FILES['image']['tmp_name']))
+    if(!is_uploaded_file($_FILES['image']['tmp_name'])) // if user upload image
     {
         $sql = 'INSERT INTO post (post_id, writer, subject, contents, date) VALUES (NULL, (SELECT user_nickname FROM user WHERE user_nickname = "' . $NICKNAME . '"), "' . $sub . '", "' . $cont . '", NOW())';
         $result = sq($sql);
 
         echo "<script>alert('게시글이 작성되었습니다.'); location.href='./board.php'</script>";
     }
-    else
+    else // if user is not upload image
     {
         $sql = 'INSERT INTO post (post_id, writer, subject, contents, image, date) VALUES (NULL, (SELECT user_nickname FROM user WHERE user_nickname = "' . $NICKNAME . '"), "' . $sub . '", "' . $cont . '", "' . $img . '", NOW())';
         $result = sq($sql);

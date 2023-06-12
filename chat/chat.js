@@ -1,3 +1,10 @@
+/*
+    Original : https://dev.epiloum.net/1395 by Epiloum
+    Modifier : JunHyeong Lee
+    File Name : chat.js
+    Format : JAVASCRIPT
+    Description : script for processing chatting functions
+*/
 
 var chatManager = new function(){
 
@@ -6,51 +13,51 @@ var chatManager = new function(){
 	var xmlHttp		= new XMLHttpRequest();
 	var finalDate	= '';
 
-	// Ajax Setting
+	// ajax setting
 	xmlHttp.onreadystatechange = function()
 	{
 		if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
 		{
-			// JSON 포맷으로 Parsing
+			// parsing to JSON format
 			console.log(xmlHttp.responseText);
 			console.log(xmlHttp.response);
 			res = JSON.parse(xmlHttp.responseText);
 			finalDate = res.date;
 			
-			// 채팅내용 보여주기
+			// show chatting
 			chatManager.show(res.data);
 			
-			// 중복실행 방지 플래그 OFF
+			// idle flag on
 			idle = true;
 		}
 	}
 
-	// 채팅내용 가져오기
+	// get history and new chat
 	this.proc = function()
 	{
-		// 중복실행 방지 플래그가 ON이면 실행하지 않음
+		// if idle flag is true, do not process
 		if(!idle)
 		{
 			return false;
 		}
 
-		// 중복실행 방지 플래그 ON
+		// idle flag off
 		idle = false;
 
 		var other_user = document.getElementById('receiver').value;
 
-		// Ajax 통신
+		// ajax communication
 		xmlHttp.open("GET", "proc.php?date=" + encodeURIComponent(finalDate) + "&user=" + encodeURIComponent(other_user), true);
 		xmlHttp.send();
 	}
 
-	// 채팅내용 보여주기
+	// show chatting function
 	this.show = function(data)
 	{
 		var o = document.getElementById('list');
 		var dt, dd;
 
-		// 채팅내용 추가
+		// add chat content to view page
 		for(var i=0; i<data.length; i++)
 		{
 			dt = document.createElement('dt');
@@ -62,11 +69,11 @@ var chatManager = new function(){
 			o.appendChild(dd);
 		}
 
-		// 가장 아래로 스크롤
+		// scroll to bottom
 		o.scrollTop = o.scrollHeight;
 	}
 
-	// 채팅내용 작성하기
+	// write chatting
 	this.write = function(frm)
 	{
 		var xmlHttpWrite	= new XMLHttpRequest();
@@ -74,28 +81,28 @@ var chatManager = new function(){
 		var msg				= frm.msg.value;
 		var param			= [];
 		
-		// 이름이나 내용이 입력되지 않았다면 실행하지 않음
+		// if receiver name or chatting is empty, do not process
 		if(receiver.length == 0 || msg.length == 0)
 		{
 			return false;
 		}
 		
-		// POST Parameter 구축
+		// struct POST parameter
 		param.push("receiver=" + encodeURIComponent(receiver));
 		param.push("msg=" + encodeURIComponent(msg));
 				
-		// Ajax 통신
+		// ajax communication
 		xmlHttpWrite.open("POST", "write.php", true);
 		xmlHttpWrite.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xmlHttpWrite.send(param.join('&'));
 		
-		// 내용 입력란 비우기
+		// make chatting input field to blank
 		frm.msg.value = '';
 		
 		// 채팅내용 갱신
 		chatManager.proc();
 	}
 
-	// interval에서 지정한 시간 후에 실행
+	// infinite iteration by pre-set interval
 	setInterval(this.proc, interval);
 }

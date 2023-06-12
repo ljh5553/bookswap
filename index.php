@@ -1,8 +1,8 @@
 <!--
-    Author : 이서인
-    File Name : main_ver2.html
-    Format : HTML
-    Description : 슬라이드 ==> 텍스트+애니메이션으로 메인 변경
+    Author : SeoIn Lee(HTML), JunHyeong Lee(PHP)
+    File Name : main_ver2.html -> index.php
+    Format : HTML -> php
+    Description : Initial page for accessing web site
 -->
 
 <!DOCTYPE html>
@@ -20,15 +20,16 @@
 
   <body>
     <?php
+    // checking user's session
         session_save_path("./session");
         session_start();
-        if(isset($_SESSION['ID']))
+        if(isset($_SESSION['ID'])) // if user's session exists
         {
             $ID = $_SESSION['ID'];
             $NICKNAME = $_SESSION['NICK'];
         }
 
-        include_once("./header/header.php");
+        include_once("./header/header.php"); // putting header
     ?>
 
     <div class="main">
@@ -48,6 +49,6 @@
       </div>
     </div>
     
-    <?php include_once("./header/footer.php")?>
+    <?php include_once("./header/footer.php") // putting footer?>
   </body>
 </html>

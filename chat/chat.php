@@ -1,3 +1,23 @@
+<!--
+    Author : JunHyeong Lee
+    File Name :chat.php
+    Format : PHP
+    Description : Chatting page for basic information exchange, by ajax polling
+
+    NOTE : proc.php and write.php are omitted comments.
+    It is because putting comments on them causing errors, so i put their basic infos here.
+
+    Author : JunHyeong Lee
+    File Name :chat_proc.php
+    Format : PHP
+    Description : Getting chat history and new chat in database
+
+    Author : JunHyeong Lee
+    File Name : write.php
+    Format : PHP
+    Description : Add new chat information in database
+-->
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,16 +29,17 @@
 <body>
 	
 <?php
+// check login by session
     session_save_path("../session");
     session_start();
-    if(isset($_SESSION['ID']))
+    if(isset($_SESSION['ID'])) // if user is logged in
     {
         $ID = $_SESSION['ID'];
         $NICKNAME = $_SESSION['NICK'];
         $target = $_POST['target_nick'];
         //echo $NICKNAME . "님 환영합니다!";
     }
-	else
+	else // if user is not loggin in
 	{
 		echo "<script>alert('채팅 기능을 사용하려면 로그인해야 합니다!');</script>";
         echo "<script>location.href='../login/login.html'</script>";

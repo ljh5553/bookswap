@@ -1,8 +1,8 @@
 <!--
-    Author : 김지성, 이준형
+    Author : JiSeong Kim, JunHyeong Lee
     File Name : singup.php
     Format : PHP
-    Description : 회원가입 기능을 수행하는 PHP, phpmailer로 연동됨
+    Description : Processing login features , synchronized with phpmailer
 -->
 
 <?php
@@ -24,16 +24,16 @@
     $PW1 = addslashes($_POST['password1']);
     $PW2 = addslashes($_POST['password2']);
     $NICKNAME = addslashes($_POST['nickname']);
-    //$EMAIL = addslashes($_POST['email']); Legacy 코드로 사용하지 않음
     
-    if($PW1 == $PW2) {
+    if($PW1 == $PW2) { // repeated password is correct
         $sql1 = "SELECT * FROM user WHERE `user_id` = '" . $ID . "'";
         $result1 = sq($sql1);
         $row_count1 = mysqli_num_rows($result1);
 
-        if($row_count1 == 0) {
-            $hash = md5(rand(0, 1000));
+        if($row_count1 == 0) { // information is not exist, can register
+            $hash = md5(rand(0, 1000)); // making hash for verification
 
+            // setting mail information
             $mail = new PHPMailer(true);
             $mail->IsSMTP();
 
@@ -42,7 +42,7 @@
             $mail->Port = 465;
             $mail->SMTPSecure = "ssl";
             $mail->Username   = "ljh5553@gmail.com";
-            $mail->Password   = "구글메일_비밀번호";
+            $mail->Password   = "Gmail_password"; // you should modify this with your information
             $mail->CharSet = "utf-8";
             $mail->SetFrom('bookswap@gmail.com', 'email verify');
             $mail->AddAddress($ID."@gachon.ac.kr", $ID);
@@ -56,10 +56,10 @@
             $sql2 = "INSERT INTO user VALUES(NULL, '$ID', '$PW1', '$NICKNAME', 0, '$hash')";
             $result2 = sq($sql2);
             echo "<script>alert('성공적으로 회원가입되었습니다. 이메일로 계정을 인증해주세요.');location.href = '../index.php';</script>";
-        } else {
+        } else { // if the same information exists
             echo "<script>alert('이미 같은 ID로 가입한 유저가 있습니다.'); history.back();</script>";
         }
-    } else {
+    } else { // user typed incorrect repeated password
         echo "<script>alert('비밀번호가 서로 다릅니다.'); history.back();</script>";
     }
 ?>

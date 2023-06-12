@@ -1,5 +1,5 @@
 <?php
-    $db = new mysqli("localhost", "root", "데이터베이스_비밀번호", "bookswap");
+    $db = new mysqli("localhost", "root", "database_password", "bookswap");
 
     if(!$db) {
         die("Database connection error : " .mysql_error());

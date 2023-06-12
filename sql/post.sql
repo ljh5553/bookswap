@@ -1,8 +1,8 @@
 /*
-    Author : 이준형
+    Author : JunHyeong Lee
     File Name : post.sql
     Format : SQL
-    Description : 게시글 정보를 저장하는 테이블
+    Description : Table for storing postings
 */
 
 CREATE TABLE IF NOT EXISTS `post` (

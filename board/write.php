@@ -1,8 +1,8 @@
 <!--
-    Author : 이서인
-    File Name : list_write.html
+    Author : SeoIn Lee
+    File Name : list_write.html -> write.php (Modified by JunHyeong Lee)
     Format : HTML
-    Description : 등록 시, 현재 1번 게시물 목업데이터 업로드
+    Description : For posting on board
 -->
 
 <!DOCTYPE html>
@@ -34,16 +34,6 @@
                 <dd><input type="text" name="subject" placeholder="제목 입력" /></dd>
               </dl>
             </div>
-            <!--
-            <div class="info">
-              <dl>
-                <dt>비밀번호</dt>
-                <dd>
-                  <input type="password" placeholder="비밀번호 입력" />
-                </dd>
-              </dl>
-            </div>
-            -->
             <div class="info">
               <dl>
                 <dt>첨부파일</dt>
@@ -67,6 +57,6 @@
         </div>
       </div>
     </div>
-    <?php include_once("./header/footer.php")?>
+    <?php include_once("./header/footer.php"); // put footer on page?>
   </body>
 </html>

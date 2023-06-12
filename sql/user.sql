@@ -1,8 +1,8 @@
 /*
-    Author : 이준형
+    Author : JunHyeong Lee
     File Name : user.sql
     Format : SQL
-    Description : 유저 정보를 저장하는 테이블
+    Description : Table for storing user data
 */
 
 CREATE TABLE IF NOT EXISTS `user` (

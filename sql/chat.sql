@@ -1,9 +1,9 @@
 /*
     Source : https://dev.epiloum.net/1395 by Epiloum
-    Modifier : 이준형
+    Modifier : JunHyeong Lee
     File Name : chat.sql
     Format : SQL
-    Description : 채팅 정보를 저장하는 테이블
+    Description : Table for chatting
 */
 
 CREATE TABLE IF NOT EXISTS `chat` (

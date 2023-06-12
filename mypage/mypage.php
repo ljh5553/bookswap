@@ -1,8 +1,8 @@
 <!--
-    Author : 이혜영
-    File Name : my_page.html
-    Format : HTML
-    Description : 거래현황 페이지
+    Author : HyeYoung Lee(HTML), JunHyeong Lee(PHP)
+    File Name : my_page.html -> mypage.php (Modified by JunHyeong lEe)
+    Format : HTML -> PHP
+    Description : Transaction information page
 -->
 
 <!DOCTYPE html>
@@ -172,8 +172,6 @@
               <a href="../board/board.php" class="btn btn-primary my-2"
                 >메인으로 돌아가기</a
               >
-              <!--임시로 시작페이지로 넣어놓음/ 완성되면 main으로 바꿔놓기! -> Modified -->
-              <!-- <a href="#" class="btn btn-secondary my-2">Secondary action</a> 버튼2 나중에 필요하다면 부가적으로 사용-->
             </p>
           </div>
         </div>
@@ -205,11 +203,11 @@
 
               if($NICKNAME === $nick)
               {
-                $is_mine = 1;
+                $is_mine = 1; // flag for this posting is mine or not
               }
               else
               {
-                $is_mine = 0;
+                $is_mine = 0; // flag for this posting is mine or not
               }
               
           ?>
@@ -219,7 +217,7 @@
                 <!--db에서 책 이미지 첨부파일 가져와서 src에다가 경로 저장-->
                 <?php 
                 $img_rs=mysqli_fetch_array(sq('SELECT image FROM post WHERE post_id = '. $postid));
-                if(!is_null($img_rs['image']))
+                if(!is_null($img_rs['image'])) // if image exists
                 {
                 ?>
                 <?php echo '<img src="data:image;base64,'. base64_encode($img_rs['image']).
@@ -227,16 +225,16 @@
                             class="bd-placeholder-img card-img-top"
                             width="100%"
                             height="180"/>'; ?>
-                <?php } ?>
+                <?php } // print image on page?>
                 <rect width="100%" />
                 <div class="card-body">
                   <!--db에서 책 정보 가져와서 src에다가 경로 저장-->
                   <?php
-                    if($is_mine === 0)
+                    if($is_mine === 0) // this posting is written by other user
                     {
                       $target_url = "../chat/chat.php";
                     }
-                    else
+                    else // this posting is written by me
                     {
                       $target_url = '../board/view.php?id=' . $postid;
                     }
@@ -249,7 +247,7 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <div class="btn-group">
-                      <?php if ($is_mine === 0) { ?>
+                      <?php if ($is_mine === 0) { // this posting is written by other user ?>
                       <script>
                         function btn() {
                           alert("책 교환 신청이 취소되었습니다.");
@@ -260,7 +258,7 @@
                         class="btn btn-sm btn-outline-secondary"
                         onclick="javascript:btn()"
                       >수정</button>
-                      <?php } else { ?>
+                      <?php } else { // this posting is written by me ?>
                         <form name="editform" action="../board/edit.php" method="post">
                           <input type="hidden" name="postid" value="<?php echo $postid; ?>"/>
                           <button type="submit" id="edit_btn" class="btn btn-sm btn-outline-secondary">수정</button>

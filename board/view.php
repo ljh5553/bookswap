@@ -1,8 +1,8 @@
 <!--
-    Author : 이서인
-    File Name : list_view.html
+    Author : SeoIn Lee(HTML), JunHyeong Lee(PHP)
+    File Name : list_view.html -> view.php (Modified by JunHyeong Lee)
     Format : HTML
-    Description : 다른 유저가 올린 게시물로, 2번 게시물 기준 목업데이터 상태로 세팅
+    Description : viewer for postings
 -->
 
 <!DOCTYPE html>
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/list.css" />
 
+    <!-- Popup function for chatting page -->
     <script type="text/javascript" language="javascript">
         function open_pop(frm)
         {
@@ -32,20 +33,21 @@
   <body>
 
   <?php
+  // login session check
     session_save_path("../session");
     session_start();
-    if(isset($_SESSION['ID']))
+    if(isset($_SESSION['ID'])) // if user login already
     {
         $ID = $_SESSION['ID'];
         $NICKNAME = $_SESSION['NICK'];
     }
-	  else
+	  else // if user is not logged in
 	  {
 		  echo "<script>alert('게시글을 보려면 로그인해야 합니다!');</script>";
       echo "<script>location.href='../login/login.html'</script>";
 	  }
 
-    include_once("../header/header.php");
+    include_once("../header/header.php"); // put header
     ?>
 
     <h1>
@@ -62,13 +64,13 @@
       <?php
         include "../db_info.php";
 
-        $postid = $_GET['id'];
+        $postid = $_GET['id']; // get post id by GET method
 
-        $sql = 'SELECT * FROM post WHERE post_id = ' . $postid;
+        $sql = 'SELECT * FROM post WHERE post_id = ' . $postid; // sql query
         $result = sq($sql);
         $row_count = mysqli_num_rows($result);
 
-        if($row_count != 0 )
+        if($row_count != 0 ) // if result is found
         {
           $rs = $result->fetch_object();
 
@@ -76,7 +78,7 @@
           $nick = $rs->writer;
           $cont = $rs->contents;
         }
-        else
+        else // if posting is not exist
         {
           echo "<script>alert('게시글을 불러오는 중 오류가 발생했습니다.');</script>";
         }
@@ -98,12 +100,13 @@
             </dl>
           </div>
           <?php 
+          // checking image is available
                 $img_rs=mysqli_fetch_array(sq('SELECT image FROM post WHERE post_id = '. $postid));
-                if(!is_null($img_rs['image']))
+                if(!is_null($img_rs['image'])) // if image exists
                 {
           ?>
           <div class="info">
-            <?php echo '<img src="data:image;base64,'. base64_encode($img_rs['image']).'" style="height: 300px" />'; ?>
+            <?php echo '<img src="data:image;base64,'. base64_encode($img_rs['image']).'" style="height: 300px" />'; // print image?>
           </div>
           <?php } ?>
           <div class="cont">
@@ -116,7 +119,7 @@
           <!-- below code is added by junhyeong lee, nickname convey for chatting -->
 
           <?php
-            if($NICKNAME !== $nick)
+            if($NICKNAME !== $nick) // if the posting is not mine, display chatting button
             {
           ?>
             <form name="chatting">
@@ -125,7 +128,7 @@
             </form>
           <?php
             }
-            else
+            else // if the posting is mine, display edit button
             {
           ?>
           <form name="editform" action="./edit.php" method="post">
@@ -135,12 +138,6 @@
           <?php
             }
           ?>
-
-          
-          <!-- until this line -->
-          <!-- <a href="../chat/chat.html" class="on">채팅</a> -->
-
-          <!--로그인 상태일 때만 사용 가능하도록 구현 부탁 + already implemented in chat.html by session (junhyeong lee)-->
         </div>
       </div>
     </div>

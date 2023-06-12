@@ -1,8 +1,8 @@
 /*
-    Author : 이준형
+    Author : JunHyeong Lee
     File Name : create_db.sql
     Format : SQL
-    Description : 데이터베이스를 만드는 SQL
+    Description : SQL for creating database
 */
 
 CREATE DATABASE bookswap default CHARACTER SET UTF8;

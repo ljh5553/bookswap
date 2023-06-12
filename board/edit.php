@@ -1,5 +1,5 @@
 <!--
-    Author : SeoIn Lee
+    Author : SeoIn Lee(HTML), JunHyeong Lee(PHP)
     File Name : list_edit.html -> edit.php (Modified by JunHyeong Lee)
     Format : HTML -> PHP
     Description : Set by mockup data of first posting -> added DB connection (-JunHyeong Lee)
