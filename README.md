@@ -11,6 +11,7 @@ Contributors : JiSeong Kim, TaeHyun Kim, JungWoong Park, SeoIn Lee, JunHyeong Le
 
 
 # Description
+Manual written by JUNHYEONG LEE
 
 1.	Overall explanation of bookswap
    
